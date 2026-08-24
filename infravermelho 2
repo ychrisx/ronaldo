@@ -1,0 +1,17 @@
+from machine import Pin, ADC
+import time
+
+adc_pin = Pin(36)
+
+adc = ADC(adc_pin)
+
+adc.width(ADC.WIDTH_12BIT)
+
+adc.atten(ADC.ATTN_11DB)
+
+while True:
+    valor_analogico = adc.read()
+    
+    print(f"Valor analógico: {valor_analogico}")
+    
+    time.sleep(1)
